@@ -1,9 +1,7 @@
-Vue-Lazyload 
+Vue-Froala
 ========
 
-see demo: [http://hilongjw.github.io/vue-lazyload/](http://hilongjw.github.io/vue-lazyload/)
-
-Vue module for lazyloading images in your applications. Some of goals of this project worth noting include:
+Vue wrapper module for the Froala editor.
 
 * Be lightweight, powerful and easy to use
 * Work on any image type
@@ -20,7 +18,7 @@ From npm:
 
 ``` sh
 
-$ npm install vue-lazyload --save
+$ npm install vue-froala --save
 
 ```
 
@@ -33,12 +31,12 @@ import Vue from 'vue'
 import App from './App.vue'
 
 // supports both of Vue 1.0 and Vue 2.0
-import VueLazyload from 'vue-lazyload'
+import VueFroala from 'vue-froala'
 
-Vue.use(VueLazyload)
+Vue.use(VueFroala)
 
 // with options
-Vue.use(VueLazyload, {
+Vue.use(Froala, {
   preLoad: 1.3,
   error: 'dist/error.png',
   loading: 'dist/loading.gif',
@@ -59,16 +57,6 @@ new Vue({
 export default {
   data () {
     return {
-      list: [
-        'your_images_url', 
-        'your_images_url', 
-        // you can customer any image's placeholder while loading or load failed
-        {
-          src: 'your_images_url.png',
-          error: 'another-error.png',
-          loading: 'another-loading-spin.svg'
-        }
-      ]
     }
   }
 }
