@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import _ from 'lodash';
 
 const inBrowser = typeof window !== 'undefined'
@@ -45,20 +44,22 @@ export default (Vue, Options = {}) => {
     Vue.directive('froala', {
         params: ['upload-path', 'froala-toolbar'],
 
-        bind: function() {
-            let $el = $(this.el);
-            $el.on('froalaEditor.initialized',  (e, editor) => this.vm.$editor = editor );
+        bind: function(el, binding, vnode) {
+            let $el = $(el);
+            /*$el.on('froalaEditor.initialized',  (e, editor) => this.vm.$editor = editor );
             $el.on('froalaEditor.focus',        (e, editor) => editor.$box.addClass('focus') );
             $el.on('froalaEditor.blur',         (e, editor) => editor.$box.removeClass('focus') );
-            $el.on('froalaEditor.image.error',  (e, editor, error) => alert(error.message) );
+            $el.on('froalaEditor.image.error',  (e, editor, error) => alert(error.message) );*/
 
             let options = {};
-            _.extend(options, defaults, opts[this.params.froalaToolbar], {
-                fileUploadURL: this.params.uploadPath,
-                imageUploadURL: this.params.uploadPath
+            _.extend(options, defaults, opts[binding.value.toolbar], {
+                fileUploadURL: binding.value.uploadPath || '',
+                imageUploadURL: binding.value.uploadPath || ''
             })
 
-            setTimeout(() => { $el.froalaEditor(options) }, 200);
+            console.log(vnode.tag);
+            console.log($el);
+            setTimeout(() => { $el.froalaEditor() }, 200);
         }
     })
 }
