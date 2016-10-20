@@ -46,10 +46,10 @@ export default (Vue, Options = {}) => {
 
         bind: function(el, binding, vnode) {
             let $el = $(el);
-            /*$el.on('froalaEditor.initialized',  (e, editor) => this.vm.$editor = editor );
+            $el.on('froalaEditor.initialized',  (e, editor) => this.$editor = editor );
             $el.on('froalaEditor.focus',        (e, editor) => editor.$box.addClass('focus') );
             $el.on('froalaEditor.blur',         (e, editor) => editor.$box.removeClass('focus') );
-            $el.on('froalaEditor.image.error',  (e, editor, error) => alert(error.message) );*/
+            $el.on('froalaEditor.image.error',  (e, editor, error) => alert(error.message) );
 
             let options = {};
             _.extend(options, defaults, opts[binding.value.toolbar], {
@@ -57,8 +57,6 @@ export default (Vue, Options = {}) => {
                 imageUploadURL: binding.value.uploadPath || ''
             })
 
-            console.log(vnode.tag);
-            console.log($el);
             setTimeout(() => { $el.froalaEditor() }, 200);
         }
     })
