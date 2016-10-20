@@ -32,7 +32,11 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]'
         }
-      }
+      },
+      { test: /\.(woff|woff2)$/,  loader: "url-loader?prefix=font/&limit=5000&mimetype=application/font-woff" },
+      { test: /\.ttf$/,   loader: "file-loader?prefix=font/" },
+      { test: /\.eot$/,   loader: "file-loader?prefix=font/" },
+      { test: /\.svg$/,   loader: "file-loader?prefix=font/" },
     ]
   },
   resolve: {
