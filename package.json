@@ -1,6 +1,6 @@
 {
   "name": "vue-froala",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "VueJS wrapper for Froala Editor",
   "main": "vue-froala.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/whitef0x0/vue-froala.git"
+    "url": "git+https://github.com/helpbase/vue-froala.git"
   },
   "keywords": [
     "vuejs",
@@ -18,9 +18,9 @@
   "author": "David Baldwynn",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/whitef0x0/vue-froala/issues"
+    "url": "https://github.com/helpbase/vue-froala/issues"
   },
-  "homepage": "https://github.com/whitef0x0/vue-froala#readme",
+  "homepage": "https://github.com/helpbase/vue-froala#readme",
   "dependencies": {
     "froala-editor": "^2.3.5",
     "jquery": "^3.1.1",
