@@ -4,6 +4,10 @@ var rollup = require('rollup')
 var babel = require('rollup-plugin-babel')
 var version = process.env.VERSION || require('./package.json').version
 
+var commonjs = require('rollup-plugin-commonjs');
+var nodeResolve = require('rollup-plugin-node-resolve');
+var postcss = require('rollup-plugin-postcss');
+
 var banner =
   '/*!\n' +
   ' * Vue-Froala.js v' + version + '\n' +
@@ -13,7 +17,11 @@ var banner =
 
 rollup.rollup({
     entry: path.resolve(__dirname, 'vue-froala.js'),
-    plugins: [ babel() ]
+    plugins: [
+        postcss(),
+        nodeResolve({main: true, extensions: [ '.js', '.json' ]}),
+        babel()
+    ]
 })
 .then(bundle => {
     return write(path.resolve(__dirname, 'vue-froala.es5.js'), bundle.generate({
@@ -23,9 +31,9 @@ rollup.rollup({
     }).code)
 })
 .then(() => {
-    console.log('Vue-Froala.js v' + version + ' builded')
+    console.log('Vue-Froala.js v' + version + ' built')
 })
-.catch(console.log)
+.catch(console.log);
 
 function getSize (code) {
   return (code.length / 1024).toFixed(2) + 'kb'

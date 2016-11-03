@@ -7,7 +7,6 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "froala-editor": "^2.3.5",
     "vue": "^2.0.1",
     "vue-froala": "file:../"
   },

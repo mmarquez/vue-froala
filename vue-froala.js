@@ -1,4 +1,8 @@
-import _ from 'lodash';
+var $ = require('jquery');
+import 'froala-editor/js/froala_editor.min';
+import "froala-editor/css/froala_editor.min.css";
+import "froala-editor/css/froala_style.min.css";
+import "font-awesome/css/font-awesome.css";
 
 const inBrowser = typeof window !== 'undefined'
 
@@ -42,22 +46,35 @@ export default (Vue, Options = {}) => {
     }
 
     Vue.directive('froala', {
-        params: ['upload-path', 'froala-toolbar'],
-
+        params: ['theme', 'toolbar', 'toolbarMD', 'height', 'uploadURL'],
         bind: function(el, binding, vnode) {
-            let $el = $(el);
-            $el.on('froalaEditor.initialized',  (e, editor) => this.$editor = editor );
-            $el.on('froalaEditor.focus',        (e, editor) => editor.$box.addClass('focus') );
-            $el.on('froalaEditor.blur',         (e, editor) => editor.$box.removeClass('focus') );
-            $el.on('froalaEditor.image.error',  (e, editor, error) => alert(error.message) );
 
-            let options = {};
-            _.extend(options, defaults, opts[binding.value.toolbar], {
-                fileUploadURL: binding.value.uploadPath || '',
-                imageUploadURL: binding.value.uploadPath || ''
-            })
+            var $el = $(this.el);
+            $el.on('froalaEditor.initialized', function (e, editor) {
+                return _this.$editor = editor;
+            });
+            $el.on('froalaEditor.focus', function (e, editor) {
+                return editor.$box.addClass('focus');
+            });
+            $el.on('froalaEditor.blur', function (e, editor) {
+                return editor.$box.removeClass('focus');
+            });
+            $el.on('froalaEditor.image.error', function (e, editor, error) {
+                return alert(error.message);
+            });
 
-            setTimeout(() => { $el.froalaEditor() }, 200);
+            var options = {
+                toolbarButtons: this.params.toolbar || opts['full'].toolbarButtons,
+                toolbarButtonsMD: this.params.toolbarMd || opts['full'].toolbarButtonsMD,
+                height: this.params.height || 300,
+                fileUploadURL: this.params.uploadPath || '',
+                imageUploadURL: this.params.uploadPath || '',
+                theme: this.params.theme || ''
+            };
+
+            setTimeout(function () {
+                $el.froalaEditor(options);
+            }, 200);
         }
     })
 }

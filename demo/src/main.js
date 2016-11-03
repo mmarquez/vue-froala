@@ -1,16 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import $ from "jquery";
-import froala from '../node_modules/froala-editor/js/froala_editor.pkgd.min';
-import "froala-editor/css/froala_editor.min.css";
-import "froala-editor/css/froala_style.min.css";
-import "font-awesome/css/font-awesome.css";
-
 // supports both of Vue 1.0 and Vue 2.0
-import VueFroala from 'vue-froala'
+import VueFroala from 'vue-froala/vue-froala.es5'
 
-Vue.use(VueFroala)
+Vue.use(VueFroala);
 
 new Vue({
   el: '#app',

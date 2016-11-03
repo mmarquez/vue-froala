@@ -23,6 +23,10 @@ $ npm install vue-froala --save
 
 See `/demo` folder for a usage example.
 
+## Development
+
+Run `node build.js` to convert your ES6 to an ES5 compatible build file
+
 ## Default Options
 ```
 {

@@ -12,7 +12,8 @@ export default {
   data () {
     return {
       froalaOptions: {
-        toolbar : ["bold", "italic", "underline", "|", "align", "formatOL", "formatUL"]
+        toolbar : ["bold", "italic", "underline", "|", "align", "formatOL", "formatUL"],
+        toolbarMD : ["bold", "italic", "underline", "|", "align", "formatOL", "formatUL"]
       }
     }
   },
