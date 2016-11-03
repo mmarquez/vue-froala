@@ -1,6 +1,6 @@
 {
   "name": "vue-froala",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "VueJS wrapper for Froala Editor",
   "main": "vue-froala.js",
   "scripts": {

@@ -1,5 +1,5 @@
 var $ = require('jquery');
-import 'froala-editor/js/froala_editor.min';
+import 'froala-editor/js/froala_editor.pkgd.min';
 import "froala-editor/css/froala_editor.min.css";
 import "froala-editor/css/froala_style.min.css";
 import "font-awesome/css/font-awesome.css";
@@ -51,7 +51,7 @@ export default (Vue, Options = {}) => {
 
             var $el = $(this.el);
             $el.on('froalaEditor.initialized', function (e, editor) {
-                return _this.$editor = editor;
+                return this.$editor = editor;
             });
             $el.on('froalaEditor.focus', function (e, editor) {
                 return editor.$box.addClass('focus');
