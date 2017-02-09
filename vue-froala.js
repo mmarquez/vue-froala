@@ -45,13 +45,13 @@ export default (Vue, Options = {}) => {
         }
     }
 
-    Vue.directive('froala', {
-        params: ['theme', 'toolbar', 'toolbarMD', 'height', 'uploadURL'],
-        bind: function(el, binding, vnode) {
-
-            var $el = $(this.el);
+    Vue.component('froala', {
+        props: ['options'],
+        template: '<div id="vue-froala-wrapper"></div>',
+        mounted: function() {
+            var $el = $(this.$el);
             $el.on('froalaEditor.initialized', function (e, editor) {
-                return this.$editor = editor;
+                return el.$editor = editor;
             });
             $el.on('froalaEditor.focus', function (e, editor) {
                 return editor.$box.addClass('focus');
@@ -64,12 +64,12 @@ export default (Vue, Options = {}) => {
             });
 
             var options = {
-                toolbarButtons: this.params.toolbar || opts['full'].toolbarButtons,
-                toolbarButtonsMD: this.params.toolbarMd || opts['full'].toolbarButtonsMD,
-                height: this.params.height || 300,
-                fileUploadURL: this.params.uploadPath || '',
-                imageUploadURL: this.params.uploadPath || '',
-                theme: this.params.theme || ''
+                toolbarButtons: this.options.toolbar || opts['full'].toolbarButtons,
+                toolbarButtonsMD: this.options.toolbarMd || opts['full'].toolbarButtonsMD,
+                height: this.options.height || 300,
+                fileUploadURL: this.options.uploadPath || '',
+                imageUploadURL: this.options.uploadPath || '',
+                theme: this.options.theme || ''
             };
 
             setTimeout(function () {
