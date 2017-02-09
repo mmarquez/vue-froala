@@ -12,23 +12,23 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue',
+        loader: 'vue-loader',
         options: {
           // vue-loader options go here
         }
       },
       {
         test: /\.js$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         exclude: /node_modules/
       },
       {
         test: /\.css$/,
-        loader: "style!css"
+        loader: "style!css-loader"
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file',
+        loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
         }
@@ -44,7 +44,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue'
     },
-    modules: ['node_modules'],
+    modules: ['node_modules']
   },
   devServer: {
     historyApiFallback: true,
@@ -55,7 +55,7 @@ module.exports = {
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery"
-    }),
+    })
   ]
 }
 

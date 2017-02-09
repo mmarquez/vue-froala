@@ -2,11 +2,12 @@
   <div id="app">
     <img src="./assets/logo.png">
     <h1>Vue Froala Demo</h1>
-    <div v-froala="froalaOptions"></div>
+    <froala :options="froalaOptions"></froala>
   </div>
 </template>
 
 <script>
+import VueFroala from 'vue-froala/vue-froala.es5';
 export default {
   name: 'app',
   data () {
