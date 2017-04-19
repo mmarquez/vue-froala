@@ -285,7 +285,7 @@ var vueFroala = (function (Vue) {
         mounted: function mounted() {
             var $el = $(this.$el);
             $el.on('froalaEditor.initialized', function (e, editor) {
-                return el.$editor = editor;
+                return $el.$editor = editor;
             });
             $el.on('froalaEditor.focus', function (e, editor) {
                 return editor.$box.addClass('focus');
